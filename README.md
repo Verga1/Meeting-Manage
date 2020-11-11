@@ -1,45 +1,138 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Meeting Manager
 
-Welcome Verga1,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### **Goals:**
 
-`python3 -m http.server`
+The goal of the app is to provide a service to small businesses and non-profits which will enable them to plan, document and create actionable items from their board meetings. 
+It provides them with a set structure to enable the creation and storage of material such as agendas, meeting minutes, and action plans.
 
-A blue button should appear to click: *Make Public*,
+### **User Stories**
 
-Another blue button should appear to click: *Open Browser*.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Make Public*,
+### **Strategy**
 
-Another blue button should appear to click: *Open Browser*.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### **Scope**
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### **Structure**
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### **Skeleton**
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+[Here] are the designs I made for the site.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+The wireframes were made using [Balsamiq](https://balsamiq.com/)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### **Surface**
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- **Font**: I wanted to use a single font throughout the site, it needed to look business savy from [Google Fonts](https://fonts.google.com/).
 
---------
+- **Colours**: 
 
-Happy coding!
+
+## FEATURES
+
+
+ ### Features Left to Impliment
+
+
+ ## TECHNOLOGIES USED
+
+- HTML:
+This project uses HTML5 to provide the content and structure.
+- CSS:
+The project uses CSS3 for styling.
+- Gitpod:
+This project was developed using Gitpod as the IDE.
+- GitHub:
+The project uses GitHub to host the repository and for the live preview of the site
+- Google Fonts:
+The project uses Google fonts to style the website fonts.
+- Javascript:
+The project uses JavaScript for game functions.
+
+
+ ## TESTING
+
+ ### Manual Testing
+Manual tests have been done throughout the development of the project.  
+The following test scenarios confirms that the website is behaving accordingly, and that bugs have been taken care of:
+
+### Navigation Testing
+
+
+### Browser and Mobile Devices Testing
+All the test scenarios have been carried out in the browsers and mobile devices as listed below. No problems were found regarding the responsiveness, overflow and the functionality except Safari.
+
+#### Browser Testing
+- Google Chrome 
+- Mozilla Firefox 
+- Microsoft Edge 
+- Safari
+
+#### Devices used
+
+
+
+
+#### Mobile Device Testing through Chrome DevTools
+
+
+
+## Key Issues and Code Validation
+### W3C Markup Validator
+
+### W3C CSS Validator
+
+
+### Browser and mobile testing
+
+### Bugs
+
+
+ ## DEPLOYMENT
+
+This project was developed using the Gitpod IDE, committed to git and pushed to GitHub using the built in function within Gitpod.
+
+To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
+
+1. Log into GitHub.
+2. In the list of repositories on the screen, select Meeting-Manager.
+3. In the menu items near the top of the page, select Settings.
+4. Scroll down to the GitHub Pages section.
+5. Under Source select the drop-down menu labelled None and select Master Branch and hit save
+6. The Master Branch automatically refreshes the page, the website has now been deployed.
+7. Scroll down to the GitHub Pages section in order to retrieve the link to the deployed website.
+
+
+
+### Run the project locally
+
+Clone this project from GitHub:
+
+1. Click for the [GitHub repository](https://github.com/Verga1/Meeting-Manager).
+2. Near the top of the page, click the green button "Code".
+3. In the Clone with HTTPs section, copy the clone URL for the repository.
+4. Open your preferred IDE.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL you copied in Step 3.
+7. Press Enter. Your local clone will be created.
+
+Further details on cloning a repository can be found on [GitHub](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+## CREDITS
+
+### Content
+
+ 
+ ### Media
+
+
+## Acknowledgements
+ 
