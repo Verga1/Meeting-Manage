@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Manager</title>
+</head>
+<body>
+    {% for meeting in meetings %}
+        {{ meeting.meeting_name }}<br>
+        {{ meeting.group_name }}<br>
+        {{meeting.meeting_date }}<br>
+        {{ meeting.meeting_agenda }}<br>
+        {{ meeting.meeting_report}}<br>
+        {{ meeting.meeting_minutes }}<br>
+        {{ meeting.meeting_actions }}<br>
+    {% endfor %}
+</body>
+</html>
