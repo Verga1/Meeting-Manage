@@ -9,16 +9,18 @@
                 <!-- username -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="material-icons prefix light-blue-text-darken-4">account_circle</i>
-                        <input id="username" name="username" type="text" class="validate"></input>
+                        <i class="material-icons prefix light-blue-text darken-4">account_circle</i>
+                        <input id="username" name="username" type="text" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
                     </div>
                 </div>
                 <!-- password -->
                 <div class="row">
                     <div class="input-field col s12">                                        
-                    <i class="material-icons prefix light-blue-text-darken-4">enhanced_encryption</i>
-                    <input id="password" name="password" type="password" class="validate">
+                    <i class="material-icons prefix light-blue-text darken-4">enhanced_encryption</i>
+                    <input id="password" name="password" type="password" minlength="5"
+                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="password">Password</label>
                     </div>
                 </div>
