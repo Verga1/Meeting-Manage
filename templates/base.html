@@ -33,7 +33,7 @@
             ><i class="material-icons">toc</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('get_meetings') }}">Home</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a href="#">New Meeting</a></li>
             <li><a href="#">Manage Groups</a></li>
             <li><a href="#">Log Out</a></li>
@@ -47,7 +47,7 @@
       <ul class="sidenav" id="mobile-demo">
         <li><h4 class="center-align light-blue-text text-darken-4">Meeting Manager</h4></li>
         <li><a href="{{ url_for('get_meetings') }}">Home</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
         <li><a href="#">New Meeting</a></li>
         <li><a href="#">Manage Groups</a></li>
         <li><a href="#">Log Out</a></li>
