@@ -101,7 +101,8 @@ def logout():
 
 @app.route("/add_meeting")
 def add_meeting():
-    return render_template("add_meeting.html")
+    groups = mongo.db.groups.find().sort("group_name", 1)
+    return render_template("add_meeting.html", groups=groups)
 
 
 if __name__ == "__main__":
