@@ -119,6 +119,17 @@ def add_meeting():
 
 @app.route("/edit_meeting/<meeting_id>", methods=["GET", "POST"])
 def edit_meeting(meeting_id):
+    if request.method == "POST":
+        submit = {
+            "group_name": request.form.get("group_name"),
+            "meeting_name": request.form.get("meeting_name"),
+            "meeting_agenda": request.form.get("meeting_agenda"),
+            "meeting_date": request.form.get("meeting_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.meetings.update({"_id": ObjectId(meeting_id)}, submit)
+        flash("Meeting Successfully Updated")
+        
     meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
     groups = mongo.db.groups.find().sort("group_name", 1)
     return render_template("edit_meeting.html", meeting=meeting, groups=groups)
