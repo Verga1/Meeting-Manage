@@ -135,6 +135,13 @@ def edit_meeting(meeting_id):
     return render_template("edit_meeting.html", meeting=meeting, groups=groups)
 
 
+@app.route("/delete_meeting/<meeting_id>")
+def delete_meeting(meeting_id):
+    mongo.db.meetings.remove({"_id": ObjectId(meeting_id)})
+    flash("Meeting Successfully Deleted")
+    return redirect(url_for("get_meetings"))
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
