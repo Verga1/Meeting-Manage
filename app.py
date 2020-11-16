@@ -25,6 +25,13 @@ def get_meetings():
     return render_template("meetings.html", meetings=meetings)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    meetings = list(mongo.db.meetings.find({"$text": {"$search": query}}))
+    return render_template("meetings.html", meetings=meetings)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
