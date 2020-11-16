@@ -148,6 +148,19 @@ def get_groups():
     return render_template("groups.html", groups=groups)
 
 
+@app.route("/add_group", methods=["GET", "POST"])
+def add_group():
+    if request.method == "POST":
+        group = {
+            "group_name": request.form.get("group_name")
+        }        
+        mongo.db.groups.insert_one(group)
+        flash("New Group Added")
+        return redirect(url_for("get_groups"))
+
+    return render_template("add_group.html")
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
