@@ -170,9 +170,16 @@ def edit_group(group_id):
         mongo.db.groups.update({"_id": ObjectId(group_id)}, submit)
         flash("Group Successfully Updated")
         return redirect(url_for("get_groups"))
-        
+
     group = mongo.db.groups.find_one({"_id": ObjectId(group_id)})
     return render_template("edit_group.html", group=group)
+
+
+@app.route("/delete_group/<group_id>")
+def delete_group(group_id):
+    mongo.db.groups.remove({"_id": ObjectId(group_id)})
+    flash("Group Successfully Deleted")
+    return redirect(url_for("get_groups"))
 
 
 if __name__ == "__main__":
