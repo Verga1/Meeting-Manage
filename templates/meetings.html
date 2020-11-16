@@ -7,8 +7,14 @@
         {% for meeting in meetings %}
         <li>
             <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                <i class="material-icons">arrow_drop_down</i>
-                <strong>{{ meeting.meeting_name }}</strong> : {{meeting.meeting_date }}
+                <div class="col s3">
+                    <i class="material-icons">arrow_drop_down</i>
+                    <a href="" class="btn-small green accent-4">Done</a>
+                    <a href="" class="btn-small light-blue lighten-1">Edit</a>               
+                </div>
+                <div class="col s9">
+                    <strong>{{ meeting.meeting_name }}</strong> : {{meeting.meeting_date }}                
+                </div>
             </div>
             <div class="collapsible-body">
                 <strong>{{ meeting.group_name }}</strong>
