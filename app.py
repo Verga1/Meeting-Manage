@@ -142,6 +142,12 @@ def delete_meeting(meeting_id):
     return redirect(url_for("get_meetings"))
 
 
+@app.route("/get_groups")
+def get_groups():
+    groups = mongo.db.groups.find().sort("group_name")
+    return render_template("groups.html", groups=groups)
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
