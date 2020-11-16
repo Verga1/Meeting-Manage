@@ -112,9 +112,17 @@ def add_meeting():
         mongo.db.meetings.insert_one(meeting)
         flash("Meeting Successfully Added")
         return redirect(url_for("get_meetings"))
-        
+
     groups = mongo.db.groups.find().sort("group_name", 1)
     return render_template("add_meeting.html", groups=groups)
+
+
+@app.route("/edit_meeting/<meeting_id>", methods=["GET", "POST"])
+def edit_meeting(meeting_id):
+    meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
+    groups = mongo.db.groups.find().sort("group_name", 1)
+    return render_template("edit_meeting.html", meeting=meeting, groups=groups)
+
 
 
 if __name__ == "__main__":
