@@ -99,8 +99,20 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_meeting")
+@app.route("/add_meeting", methods=["GET", "POST"])
 def add_meeting():
+    if request.method == "POST":
+        meeting = {
+            "group_name": request.form.get("group_name"),
+            "meeting_name": request.form.get("meeting_name"),
+            "meeting_agenda": request.form.get("meeting_agenda"),
+            "meeting_date": request.form.get("meeting_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.meetings.insert_one(meeting)
+        flash("Meeting Successfully Added")
+        return redirect(url_for("get_meetings"))
+        
     groups = mongo.db.groups.find().sort("group_name", 1)
     return render_template("add_meeting.html", groups=groups)
 

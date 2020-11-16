@@ -1,16 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-    {% for meeting in meetings %}
-        {{ meeting.meeting_name }}<br>
-        {{ meeting.group_name }}<br>
-        {{meeting.meeting_date }}<br>
-        {{ meeting.meeting_agenda }}<br>
-        {{ meeting.meeting_report}}<br>
-        {{ meeting.meeting_minutes }}<br>
-        {{ meeting.meeting_actions }}<br>
-    {% endfor %}
+<h3 class="light-blue-text text-darken-4 center-align">All Meetings</h3>
 
     <ul class="collapsible">
         {% for meeting in meetings %}
@@ -22,6 +13,7 @@
             <div class="collapsible-body">
                 <strong>{{ meeting.group_name }}</strong>
                 <p>{{ meeting.meeting_agenda }}</p>
+                <p><em>by: {{ meeting.created_by }}</em></p>
             </div>
         </li>
         {% endfor %}
