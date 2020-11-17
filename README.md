@@ -6,11 +6,27 @@
 
 ### **Goals:**
 
-The goal of the app is to provide a service to small businesses and non-profits which will enable them to plan, document and create actionable items from their board meetings. 
-It provides them with a set structure to enable the creation and storage of material such as agendas, meeting minutes, and action plans.
+The goal of the app is to provide a service to small businesses and non-profits which will enable them to plan, document and create actionable items from their board or staff meetings. 
+It provides them with a set structure to enable the creation and storage of material such as agendas, meeting minutes, and action plans. The app requests that all users register 
+and login to view the 'Meeting Manager' associated with their particular group. Once logged in the user can then create, read, update and delete their 'Meetings'. The app is optimized for use on phones and tablets.
 
 ### **User Stories**
-
+-   #### First Time User Goals
+    1. As a first time user, I want to see that the app meets my needs or those of my organisation.
+    2. As a first time user, I want to easily navigate throughout the app to find content.
+    3. As a first time user, I want to see that I can quickly and easily input relevant information.
+-   #### Returning User Goals
+    1. As a returning user, I want to create and read Meetings.
+    2. As a returning user, I want to share my Meetings with other members of my team.
+    3. As a returning user, I want to review meeting minutes and actions when required.
+-   #### Frequent User Goals
+    1. As a frequent user, I want to update and delete Meetings.
+    2. As a frequent user, I want to create and manage Meeting Groups.
+    3. As a frequent user, I want to view and manage the Meetings.
+-   #### Owner Goals
+    1. As the app owner, I want to provide a clean and easy-to-use app that appeals to a certain market.
+    2. As the app owner, I want to ensure the app provides industry-standard functionality.
+    3. As the app owner, I want to sell other apps to users.
 
 
 ### **Strategy**
@@ -38,24 +54,44 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/)
 
 ## FEATURES
 
+-   Responsive on all device sizes.
+-   User registration, login & logout.
+-   Create, read, update and delete functionality.
+-   Search functionality.
+-   Confirm delete functionality.
+-   Materialize Collapsible Meeting Manager.
+-   Mobile collapse nav bar.
+-   Different user permissions (Admin/User)
+
 
  ### Features Left to Impliment
 
 
  ## TECHNOLOGIES USED
 
-- HTML:
-This project uses HTML5 to provide the content and structure.
-- CSS:
-The project uses CSS3 for styling.
-- Gitpod:
-This project was developed using Gitpod as the IDE.
-- GitHub:
-The project uses GitHub to host the repository and for the live preview of the site
-- Google Fonts:
-The project uses Google fonts to style the website fonts.
-- Javascript:
-The project uses JavaScript for game functions.
+### Languages
+
+-   [HTML](https://www.w3schools.com/html/)
+-   [CSS](https://www.w3schools.com/css/)
+-   [JavaScript](https://www.javascript.com/)
+-   [Python](https://www.python.org/)
+
+### Frameworks, Libraries & Programs
+
+-   [Flask](https://flask.palletsprojects.com/)
+    - Flask was used to develop the app.
+-   [Materialize](https://materializecss.com/)
+    - Materialize was used to assist with the responsiveness and styling of the website.
+-   [jQuery](https://jquery.com/)
+    - jQuery was used in conjunction with Materialize to initialise components.
+-   [Git](https://git-scm.com/)
+    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub & Heroku.
+-   [GitHub](https://github.com/)
+    - GitHub is used to store the projects code after being pushed from Git.
+-   [MongoDB](https://www.mongodb.com/)
+    - MongoDB was the database chosen for use with this app.
+-   [Werkzeug](https://werkzeug.palletsprojects.com/)
+    - Werkzeug was used for its generate and check password hash functionality.
 
 
  ## TESTING
@@ -127,6 +163,9 @@ Clone this project from GitHub:
 Further details on cloning a repository can be found on [GitHub](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 ## CREDITS
+
+### Tutorial
+-   This app was built in conjunction with The Code Institute 'Data Centric Development' module.
 
 ### Content
 
