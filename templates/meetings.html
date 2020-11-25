@@ -48,9 +48,21 @@
                 </div>
             </div>
             <div class="collapsible-body">
-                <strong>{{ meeting.group_name }}</strong>
-                <p>{{ meeting.meeting_agenda }}</p>
-                <p><em>by: {{ meeting.created_by }}</em></p>
+                <div class="row">
+                    <div class="col m4 s12">
+                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">folder_open</i> Group</h6>
+                        <strong>{{ meeting.group_name }}</strong>
+                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">event</i> Meeting Date</h6>
+                        <p>{{ meeting.meeting_date }}</p>
+                        <p><em>by: {{ meeting.created_by }}</em></p>
+                    </div>
+                    <div class="col m8 s12">
+                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">gavel</i> Meeting Name</h6>
+                        <p>{{ meeting.meeting_name }}</p>
+                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">content_paste</i> Meeting Agenda</h6>
+                        <p>{{ meeting.meeting_agenda }}</p>
+                    </div>
+                </div>
             </div>
         </li>
         {% endfor %}
