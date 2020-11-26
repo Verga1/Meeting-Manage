@@ -1,13 +1,13 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit Meeting</h3>
+<h3 class="cyan-text text-darken-4 center-align">Edit Meeting</h3>
 
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('edit_meeting', meeting_id=meeting._id) }}">
             <!-- group selection -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix light-blue-text text-darken-4">folder_open</i>
+                    <i class="material-icons prefix cyan-text text-darken-4">folder_open</i>
                     <select id="group_name" name="group_name" class="validate" required>
                         <option value="" disabled>Group selection</option>
                         {% for group in groups %}
@@ -24,7 +24,7 @@
             <!-- meeting name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix light-blue-text text-darken-4">gavel</i>
+                    <i class="material-icons prefix cyan-text text-darken-4">gavel</i>
                     <input id="meeting_name" name="meeting_name" minlenght="5" maxlength="50"
                         value="{{ meeting.meeting_name }}" type="text" class="validate" required>
                     <label for="meeting_name">Meeting Name</label>
@@ -33,7 +33,7 @@
             <!-- meeting agenda -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix light-blue-text text-darken-4">content_paste</i>
+                    <i class="material-icons prefix cyan-text text-darken-4">content_paste</i>
                     <textarea id="meeting_agenda" name="meeting_agenda" minlenght="5"
                         maxlength="500" class="materialize-textarea validate" required>
                         {{- meeting.meeting_agenda -}}    
@@ -44,7 +44,7 @@
             <!-- due date picker -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix light-blue-text text-darken-4">event</i>
+                    <i class="material-icons prefix cyan-text text-darken-4">event</i>
                     <input id="meeting_date" name="meeting_date" type="text"
                         value="{{ meeting.meeting_date }}" class=" datepicker validate" required>
                     <label for="meeting_date">Meeting Date</label>
@@ -57,7 +57,7 @@
                     <a href="{{ url_for('get_meetings') }}" class="btn-large red text-shadow">
                         Cancel <i class="material-icons prefix">cancel</i>
                     </a>
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    <button type="submit" class="btn-large cyan darken-1 text-shadow">
                         Edit Meeting <i class="material-icons prefix">edit</i>
                     </button>
                 </div>

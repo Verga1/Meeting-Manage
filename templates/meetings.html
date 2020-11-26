@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">All Meetings</h3>
+    <h3 class="cyan-text text-darken-4 center-align">All Meetings</h3>
 
     <div class="row car-panel grey lighten-5">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
-                    <i class="material-icons prefix light-blue-text text-darken-4">search</i>
+                    <i class="material-icons prefix cyan-text text-darken-4">search</i>
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
                     <label for="query">Search Meetings</label>
                 </div>
                 <div class="col s12 m4">
                     <a href="{{ url_for('get_meetings') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                    <button type="submit" class="cyan darken-1 btn text-shadow">
                         <i class="material-icons left">search</i> Search
                     </button>
                 </div>
@@ -25,19 +25,19 @@
     <ul class="collapsible">
         {% for meeting in meetings %}
         <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <div class="collapsible-header white-text cyan darken-4 text-shadow">
                 <div class="col s3">
                     <i class="material-icons">arrow_drop_down</i>
                     {% if session.user|lower == meeting.created_by|lower %}
                         <a href="#{{ meeting._id }}" class="btn-small green accent-4 modal-trigger">Delete</a>
                         <a href="{{ url_for('edit_meeting', meeting_id=meeting._id) }}" 
-                            class="btn-small light-blue lighten-1">Edit</a>
+                            class="btn-small cyan lighten-1">Edit</a>
                         <div id="{{ meeting._id }}" class="modal black-text">
                             <div class="modal-content">
                                 <h3>Are you sure you want to delete?</h3>
                             </div>
                             <div class="modal-footer">
-                                <a href="{{ url_for('delete_meeting', meeting_id=meeting._id) }}" class="modal-close btn-small blue">Yes</a>
+                                <a href="{{ url_for('delete_meeting', meeting_id=meeting._id) }}" class="modal-close btn-small cyan">Yes</a>
                                 <a href="{{ url_for('get_meetings') }}" class="modal-close btn-small red">No</a>
                             </div>
                         </div>
@@ -50,16 +50,16 @@
             <div class="collapsible-body">
                 <div class="row">
                     <div class="col m4 s12">
-                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">folder_open</i> Group</h6>
+                        <h6 style="color:cyan;"><i class="material-icons prefix cyan-text text-darken-4">folder_open</i> Group</h6>
                         <strong>{{ meeting.group_name }}</strong>
-                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">event</i> Meeting Date</h6>
+                        <h6 style="color:cyan;"><i class="material-icons prefix cyan-text text-darken-4">event</i> Meeting Date</h6>
                         <p>{{ meeting.meeting_date }}</p>
                         <p><em>by: {{ meeting.created_by }}</em></p>
                     </div>
                     <div class="col m8 s12">
-                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">gavel</i> Meeting Name</h6>
+                        <h6 style="color:cyan;"><i class="material-icons prefix cyan-text text-darken-4">gavel</i> Meeting Name</h6>
                         <p>{{ meeting.meeting_name }}</p>
-                        <h6 style="color:blue;"><i class="material-icons prefix light-blue-text text-darken-4">content_paste</i> Meeting Agenda</h6>
+                        <h6 style="color:cyan;"><i class="material-icons prefix cyan-text text-darken-4">content_paste</i> Meeting Agenda</h6>
                         <p>{{ meeting.meeting_agenda }}</p>
                     </div>
                 </div>
