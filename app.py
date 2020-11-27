@@ -60,7 +60,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-                # check if username already exists in db
+        # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -68,11 +68,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -142,7 +142,7 @@ def edit_meeting(meeting_id):
         }
         mongo.db.meetings.update({"_id": ObjectId(meeting_id)}, submit)
         flash("Meeting Successfully Updated")
-        
+
     meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
     groups = mongo.db.groups.find().sort("group_name", 1)
     return render_template("edit_meeting.html", meeting=meeting, groups=groups)
@@ -166,7 +166,7 @@ def add_group():
     if request.method == "POST":
         group = {
             "group_name": request.form.get("group_name")
-        }        
+        }
         mongo.db.groups.insert_one(group)
         flash("New Group Added")
         return redirect(url_for("get_groups"))
