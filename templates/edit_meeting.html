@@ -41,6 +41,28 @@
                     <label for="meeting_agenda">Meeting Agenda</label>
                 </div>
             </div>
+            <!-- meeting actions -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix cyan-text text-darken-4">assignment</i>
+                    <textarea id="meeting_actions" name="meeting_actions" minlength="5"
+                        maxlength="500" class="materialize-textarea validate"></textarea>
+                    <label for="meeting_actions">Meeting Actions</label>
+                </div>
+            </div>
+            <!-- actions switch -->                                    
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <i class="material-icons prefix cyan-text text-darken-4">check_circle</i>
+                        <label for="is_complete">
+                            <input id="is_complete" name="is_complete" type="checkbox">
+                            <span class="lever"></span>
+                            Actions completed
+                        </label>
+                    </div>
+                </div>
+            </div>          
             <!-- due date picker -->
             <div class="row">
                 <div class="input-field col s12">

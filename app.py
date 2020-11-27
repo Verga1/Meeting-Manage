@@ -18,7 +18,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
 @app.route("/get_meetings")
 def get_meetings():
     meetings = list(mongo.db.meetings.find())
@@ -57,6 +56,7 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/")
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -109,11 +109,14 @@ def logout():
 @app.route("/add_meeting", methods=["GET", "POST"])
 def add_meeting():
     if request.method == "POST":
+        is_complete = "on" if request.form.get("is_complete") else "off"
         meeting = {
             "group_name": request.form.get("group_name"),
             "meeting_name": request.form.get("meeting_name"),
             "meeting_agenda": request.form.get("meeting_agenda"),
             "meeting_date": request.form.get("meeting_date"),
+            "meeting_actions": request.form.get("meeting_actions"),
+            "is_complete": is_complete,
             "created_by": session["user"]
         }
         mongo.db.meetings.insert_one(meeting)
@@ -127,11 +130,14 @@ def add_meeting():
 @app.route("/edit_meeting/<meeting_id>", methods=["GET", "POST"])
 def edit_meeting(meeting_id):
     if request.method == "POST":
+        is_complete = "on" if request.form.get("is_complete") else "off"
         submit = {
             "group_name": request.form.get("group_name"),
             "meeting_name": request.form.get("meeting_name"),
             "meeting_agenda": request.form.get("meeting_agenda"),
             "meeting_date": request.form.get("meeting_date"),
+            "meeting_actions": request.form.get("meeting_actions"),
+            "is_complete": is_complete,
             "created_by": session["user"]
         }
         mongo.db.meetings.update({"_id": ObjectId(meeting_id)}, submit)
