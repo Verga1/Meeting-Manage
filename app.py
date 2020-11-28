@@ -1,3 +1,4 @@
+# General imports for this project
 import os
 from flask import (
     Flask, flash, render_template,
@@ -9,6 +10,7 @@ if os.path.exists("env.py"):
     import env
 
 
+# App instance
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -20,12 +22,18 @@ mongo = PyMongo(app)
 
 @app.route("/get_meetings")
 def get_meetings():
+    """
+    Opens meeting page for the user
+    """
     meetings = list(mongo.db.meetings.find())
     return render_template("meetings.html", meetings=meetings)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    Search meeting name function
+    """
     query = request.form.get("query")
     meetings = list(mongo.db.meetings.find({"$text": {"$search": query}}))
     return render_template("meetings.html", meetings=meetings)
@@ -33,6 +41,14 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Registration view for vistors of the site to register
+    Checks if :
+    - if username allready exist
+    - if registration was saved
+
+    Also hashes the password to the database
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -59,11 +75,27 @@ def register():
 @app.route("/")
 @app.route("/index")
 def index():
+    """
+    Index to welcome the user, static content
+    """
     return render_template("index.html")
 
-    
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Login view for candidates/user and admin to login
+    Checks if :
+    - if username exists
+    - if password is correct
+    - if user/candidate is active
+    - if user is approved
+    if incorrect; show messages above main hero image on login.html
+
+    Used tutorial: https://www.youtube.com/watch?v=2Zz97NVbH0U
+
+    Also unhashes the password from the database
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -93,6 +125,9 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """
+    Opens profile page of a user
+    """
     # grab the session user's username from the db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -105,6 +140,9 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
+    """
+    Navbar link to clear session -> to logout the user/admin
+    """
     #remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
@@ -113,6 +151,11 @@ def logout():
 
 @app.route("/add_meeting", methods=["GET", "POST"])
 def add_meeting():
+    """
+    Add a meeting by using a form,
+    group can be selected by dropdown,
+    meeting updated to the database
+    """
     if request.method == "POST":
         is_complete = "on" if request.form.get("is_complete") else "off"
         meeting = {
@@ -134,6 +177,11 @@ def add_meeting():
 
 @app.route("/edit_meeting/<meeting_id>", methods=["GET", "POST"])
 def edit_meeting(meeting_id):
+    """
+    Edit a meeting by using a form,
+    group can be selected by dropdown,
+    meeting updated to the database
+    """
     if request.method == "POST":
         is_complete = "on" if request.form.get("is_complete") else "off"
         submit = {
@@ -155,6 +203,9 @@ def edit_meeting(meeting_id):
 
 @app.route("/delete_meeting/<meeting_id>")
 def delete_meeting(meeting_id):
+    """
+    Delete a meeting from the database
+    """
     mongo.db.meetings.remove({"_id": ObjectId(meeting_id)})
     flash("Meeting Successfully Deleted")
     return redirect(url_for("get_meetings"))
@@ -162,12 +213,19 @@ def delete_meeting(meeting_id):
 
 @app.route("/get_groups")
 def get_groups():
+    """
+    Opens group page for the admin
+    """
     groups = mongo.db.groups.find().sort("group_name")
     return render_template("groups.html", groups=groups)
 
 
 @app.route("/add_group", methods=["GET", "POST"])
 def add_group():
+    """
+    Add a group by using a form,
+    group updated to the database
+    """
     if request.method == "POST":
         group = {
             "group_name": request.form.get("group_name")
@@ -181,6 +239,10 @@ def add_group():
 
 @app.route("/edit_group/<group_id>", methods=["GET", "POST"])
 def edit_group(group_id):
+    """
+    Edit a group by using a form,
+    group updated to the database
+    """
     if request.method == "POST":
         submit = {
             "group_name": request.form.get("group_name")
@@ -195,11 +257,16 @@ def edit_group(group_id):
 
 @app.route("/delete_group/<group_id>")
 def delete_group(group_id):
+    """
+    Edit a group by using a form,
+    group deleted from the database
+    """
     mongo.db.groups.remove({"_id": ObjectId(group_id)})
     flash("Group Successfully Deleted")
     return redirect(url_for("get_groups"))
 
 
+# To run the app
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -2,7 +2,7 @@
 {% block content %}
 
     <h3 class="purple-text text-darken-4 center-align">All Meetings</h3>
-
+    <!-- Search Box -->
     <div class="row car-panel grey lighten-5">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
@@ -20,7 +20,7 @@
             </div>
         </form>
     </div>
-
+    <!-- Collapsible Meetings -->
     {% if meetings|length > 0 %}
     <ul class="collapsible">
         {% for meeting in meetings %}
