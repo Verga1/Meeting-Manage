@@ -1,4 +1,4 @@
-# General imports for this project
+"""General imports for this project"""
 import os
 from flask import (
     Flask, flash, render_template,
@@ -25,6 +25,8 @@ def get_meetings():
     """
     Opens meeting page for the user
     """
+    if not session.get("user"):
+        return render_template("error.html")
     meetings = list(mongo.db.meetings.find())
     return render_template("meetings.html", meetings=meetings)
 
@@ -58,11 +60,11 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
+        register_data = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register_data)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
@@ -103,22 +105,16 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
                     "profile", username=session["user"]))
-            else:
-                # invalid password match
-                flash("Incorrect Username and/or Password")
-                return redirect(url_for("login"))
 
-        else:
-            # username doesn't exist
-            flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
+        # username doesn't exist
+        flash("Incorrect Username and/or Password")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -156,6 +152,8 @@ def add_meeting():
     group can be selected by dropdown,
     meeting updated to the database
     """
+    if not session.get("user"):
+        return render_template("error.html")
     if request.method == "POST":
         is_complete = "on" if request.form.get("is_complete") else "off"
         meeting = {
@@ -182,6 +180,9 @@ def edit_meeting(meeting_id):
     group can be selected by dropdown,
     meeting updated to the database
     """
+    meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
+    if not session.get("user") or not meeting or meeting["created_by"] != session["user"]:
+        return render_template("error.html")
     if request.method == "POST":
         is_complete = "on" if request.form.get("is_complete") else "off"
         submit = {
@@ -196,7 +197,6 @@ def edit_meeting(meeting_id):
         mongo.db.meetings.update({"_id": ObjectId(meeting_id)}, submit)
         flash("Meeting Successfully Updated")
 
-    meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
     groups = mongo.db.groups.find().sort("group_name", 1)
     return render_template("edit_meeting.html", meeting=meeting, groups=groups)
 
@@ -216,6 +216,8 @@ def get_groups():
     """
     Opens group page for the admin
     """
+    if not session.get("user"):
+        return render_template("error.html")
     groups = mongo.db.groups.find().sort("group_name")
     return render_template("groups.html", groups=groups)
 
