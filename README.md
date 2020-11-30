@@ -31,7 +31,7 @@ and login to view the 'Meeting Manager' associated with their particular group. 
 
 ### **Wireframes**
 
-[Here] are the designs I made for the site.
+Here are the designs I made for the site [1](/static/images/meeting_manager_wf1.png)[2](/static/images/meeting_manager_wf2.png)[3](/static/images/meeting_manager_wf3.png).
 
 The wireframes were made using [Balsamiq](https://balsamiq.com/)
 
