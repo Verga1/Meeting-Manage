@@ -1,6 +1,6 @@
 # Meeting Manager
 
-
+[View the live app here.](http://flask-meeting-manager-project.herokuapp.com/)
 
 ## UX
 
@@ -31,7 +31,7 @@ and login to view the 'Meeting Manager' associated with their particular group. 
 
 ### **Wireframes**
 
-Here are the designs I made for the site [1](/static/images/meeting_manager_wf1.png)[2](/static/images/meeting_manager_wf2.png)[3](/static/images/meeting_manager_wf3.png).
+Here are the designs I made for the site [1](/static/images/meeting_manager_wf1.png), [2](/static/images/meeting_manager_wf2.png), [3](/static/images/meeting_manager_wf3.png).
 
 The wireframes were made using [Balsamiq](https://balsamiq.com/)
 
@@ -155,14 +155,11 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/)
     3. As the app owner, I want to sell other apps to users.
         -   The footer contains a link which can be used to take the user to advertisements for other apps that they might be interested in.
 
-### Browser and Mobile Devices Testing
-All the test scenarios have been carried out in the browsers and mobile devices as listed below. No problems were found regarding the responsiveness, overflow and the functionality.
-
-#### Browser Testing
-- Google Chrome 
-- Mozilla Firefox 
-- Microsoft Edge 
-- Safari
+### Further testing
+* Tested this website on laptop and mobile.
+* Tested this website on Google Chrome, Firefox and Safari browsers.
+* I've asked colleagues and friends to give feedback.
+* During testing I used "inspect" function on different OS, devices and browsers.
 
 
 ### Bugs
