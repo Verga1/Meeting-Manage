@@ -31,9 +31,7 @@ and login to view the 'Meeting Manager' associated with their particular group. 
 
 ### **Wireframes**
 
-Here are the designs I made for the site [1](/static/images/meeting_manager_wf1.png), [2](/static/images/meeting_manager_wf2.png), [3](/static/images/meeting_manager_wf3.png).
-
-The wireframes were made using [Balsamiq](https://balsamiq.com/)
+Here are the designs I made for the site [1](/static/images/meeting_manager_wf1.png), [2](/static/images/meeting_manager_wf2.png), [3](/static/images/meeting_manager_wf3.png), [4](/static/images/meeting_manager_wf4.png) and [5](/static/images/meeting_manager_wf5.png).
 
 ### **Design**
 
@@ -44,17 +42,67 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/)
 
 ## FEATURES
 
--   Responsive on all device sizes.
--   User registration, login & logout.
--   Create, read, update and delete functionality.
--   Search functionality.
--   Confirm delete functionality.
--   Materialize Collapsible Meeting Manager.
--   Mobile collapse nav bar.
--   Different user permissions (Admin/User)
+### *Visible to all users*
+
+1. **Index page**
+    - Upon entering the site you are greeted with a card panel indicating that you need to register or Login to gain access to the site.
+
+2. **Login / Register**
+    - The option to Login or Register is visible to all users from the menu tab in the navigation bar. However, only those registered can use the login feature.
+    - Both Username and password require a minimum length of 5 characters. If this is not completed the colour scheme of the line will turn red, (green indicates you have 5 or more characters).
+
+#### *Visible to registered users*
+
+1. **New Meeting**
+    - Registered users can create a new meeting through a form.
+    - There are six inputs to complete of which only four are required to actually create the meeting.
+    - The required inputs text line will turn red if not completed (1 dropdown selection, 2 text inputs minimum 5 characters and a date picker).
+    - The other inputs required will more likely be completed after the meeting takes place.
+
+2. **Home**
+    - This is where the details of all meetings are held. They are visible to all users.
+    - The meeting name and date are displayed for users to see and the details of the meeting are shown in a collapsible body once meeting is clicked.
+    - The options to edit or delete the meeting are available in this body to the user who created the meeting or the admin.
+    - When a user chooses to delete a meeting a modal will pop up first to prompt the user to confirm they do want to delete the meeting.
+    - When a user chooses to edit the meeting they will be taken to the edit meeting page which has the same functionality as the add meeting page except the buttons (edit meeting and cancel).
+    - There is a search functionalty which allows you to search by meeting name. Enter a meeting name and click the search button. Click the reset button to show all meetings again.
+    - There is a defensive program should anyone try to copy and paste the URL of this page (and the edit page). If a user does not have login access they will be shown an error page.
+
+3. **Profile**
+    - The Profile page lets users know what access/capabilities they have on the site.
+
+4. **Logout**
+
+    - Both logged in Users and Admin can log out by clicking the Log Out menu item from the navigation bar. 
+    - They will be redirected to the Login page
+
+#### *Visible to admin user*
+
+1. **Manage Groups**
+    - Full CRUD funtionality for groups
+        - Create Group
+        - Read Group
+        - Edit Group
+        - Delete Group
+    - Groups are included in the dropdown selection input on the add meeting page.
+    - When the *admin* chooses to delete a group a modal will pop up first to prompt the user to confirm they do want to delete the meeting.
+    - There is a defensive program should anyone try to copy and paste the URL of this page. If a user does not have access they will be shown an error page.
+
+
+    - To view please use the following login details: 
+        - *Username*: admin
+        - *Password*:adminpassword
 
 
  ### Features Left to Impliment
+
+Future features may include but not limted to: 
+1. **Profile** 
+    - Password update feature
+    - Profiles by group selection
+2. **Home Page** -  meetings only visible by group profile
+3. **New Meeting** - ability to upload external files
+4. **Admin User** - at present admin is identified with just username == admin I would like the ability to have multiple admins
 
 
  ## TECHNOLOGIES USED
@@ -72,6 +120,8 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/)
     - Flask was used to develop the app.
 -   [Materialize](https://materializecss.com/)
     - Materialize was used to assist with the responsiveness and styling of the website.
+-   [Balsamiq](https://balsamiq.com/)
+    - Balsamiq was used to complete the wireframes,
 -   [jQuery](https://jquery.com/)
     - jQuery was used in conjunction with Materialize to initialise components.
 -   [Git](https://git-scm.com/)
@@ -85,6 +135,185 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/)
 
 
  ## TESTING
+
+ ### **Feature Testing**
+
+#### First Time User Story - Non Session User
+
+Possible Actions
+- View Index Page
+- View Login Page
+- View Registration Page
+
+##### *View Index Page*
+- Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
+- **Expected Result:** Directed to site index page which directs user to login or register
+
+##### *Register*
+Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
+- Try to find the Registration page
+    - **Nav bar** - From the navigation menu click *Register*
+- **Expected Result:** 
+    - Directed to Register Page
+
+- Fill in username and password 
+- **Expected Result:** 
+    - Directed to profile page
+    - Success flash message to appear with welcome message to user - "*Welcome 'username'*"
+
+<br>
+
+#### Returning/Frequent User Story - Session User
+
+Possible Actions
+- Login
+- View Home Page 
+- View Profile Page
+- Logout
+- Create a new Meeting
+- Edit/Update own Meeting
+- Delete own Meeting
+
+##### *Login*
+Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
+- Try to find the Login page
+    - From the navigation menu click *Login*
+- **Expected Result:** 
+    - Directed to Login Page
+
+- Fill in username and password 
+- **Expected Result:** 
+    - Directed to profile page
+    - Success flash message to appear with welcome message to user - "*Welcome 'username'*"
+- **Defensive Design:** 
+    - Enter a wrong username --> warning flash message returned - "*Incorrect Username and/or Password*"
+    - Enter a wrong password --> warning flash message returned - "*Incorrect Username and/or Password*"
+
+
+##### *Logout*
+- From the navigation menu click *Logout* 
+- **Expected Result:** 
+    - Directed to Login page
+    - Success flash message confirming you have logged out --> "*You have been successfully logged out*"
+
+##### *Meetings (CRUD)*
+##### *Meeting Create*
+- From the navigation menu click *New Meetings*
+- Fill out form all fields required 
+- Click the "*Add Meeting*" button
+
+- **Expected Result:** 
+    - Directed to Home page and will see new meeting live on the page
+    - Success flash message to appear --> "*Meeting Successfully Added*"
+- **Defensive Design:** 
+    - User will be prompted to fill out required fields and won't be able to submit untill populated
+
+##### *Meetings Read*
+- Meeting available to read on Home page
+
+##### *Meetings Edit/Update*
+- Meeting creator will have the abilty to edit a meeting
+- Navigate to the home page
+    - From the navigation menu select *Home* then select the meeting to edit 
+    - From the meeting detail in collapsible body select the edit button on the card
+- **Expected Result:** 
+    - Directed to Edit Meeting page
+ 
+- User can edit details and click the *Edit* button
+    - **Expected Result:** 
+        - Success Flash message --> "*Meeting Successfully Updated*"
+- User can cancel changes and click the *cancel* button
+    - **Expected Result:** 
+        - Directed back to the home page to review
+
+- **Defensive Design:** 
+    - To protect the integrity of all meetings a registered user is only able to edit a meeting they created
+
+
+##### *Meeting Delete*
+User can delete a meeting by clicking the *Delete* button
+- **Expected Result:** 
+    - Pop-up mondal to ask user to confirm deletion
+    - Meeting deleted from list
+    - User directed back to Home page
+    - Success Flash message --> "*Meeting Successfully Deleted*"
+
+- **Defensive Design:** 
+    - To protect the integrity of all meetings a registered user is only able to delete a meeting they created
+<br>
+
+#### Admin User Story
+
+Possible Actions: 
+- Access to all registered user features
+- Added feature of group category management 
+
+
+##### *Login*
+- To test admin feature please use the following login details: 
+    - *Username*: admin
+    - *Password*:adminpassword
+
+##### *Category (CRUD)*
+##### *Manage Groups*
+
+- Log in with username == admin
+- Select *Manage Groups* from the navigation menu
+- **Expected Result:** 
+    - Directed to Manage Groups list page 
+
+**Defensive Design:** 
+- Only admin can view the groups to protect integrity
+ 
+
+##### Meeting-Group Create
+- On manage groups  page click "*Add Group*" button
+- Directed to Add Group page
+- Enter new group name and click the "*Add Group*" button
+
+- **Expected Result:** 
+    - Directed to Manage Groups page 
+    - Success Flash message --> "*New Group Added*"
+    - New Group card appears on list page
+
+
+##### *Project-Category Edit/Update*
+- On manage groups page click "*Edit*" button on the group card you'd like to edit
+- **Expected Result:** - Directed to Edit Group page
+- Make edit to group or cancel changes
+- **Expected Result:**
+    - Directed back to manage group page
+    - If changes made flash message --> "*Group Successfully Updated*"
+
+##### *Project-Category Delete*
+- On manage groups page click "*Delete*" button on the group card you'd like to remove
+- **Expected Result:** 
+    - Pop-up modal to ask user to confirm deletion
+    - Category deleted from groups
+    - User directed back to manage groups page
+    - Success Flash message --> "*Group Successfully Deleted*"
+
+
+
+### Defensive Design Testing
+
+- As detailed above all features have been designed with the consideration to the session user to manage the user actions and visibility
+- Navigation menu items have been restricted based on session user
+
+### **Code Validators**
+
+To ensure all code was clean, bug free and most importantly for python PEP8 compliant the following validators were used on the site: 
+
+- [W3C HTML validator](https://validator.w3.org/) to validate CSS code
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS code
+- [JSlint](https://jslint.com) to validate jQuery Code
+- Pylint in the DOM to validate Python code
+
+### **Site UI/UX & Browser Compatibility Testing**
+
+- Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
+- Chrome dev tools were used to review responsivness on multiple device sizes
+- Cross browswer testing was also attempted on chrome and safari
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -124,7 +353,7 @@ The wireframes were made using [Balsamiq](https://balsamiq.com/)
     3. As a returning user, I want to update action items.
         1. Each 'Meeting' has an ability to edit the meeting details.
         2. The 'Add Meeting' form contains a switch to verify when meeting actions are completed.
-        3. The 'Edit Risk' form contains the same ability.
+        3. The 'Edit Meeting' form contains the same ability.
 
 #### Frequent User Goals
 
