@@ -181,6 +181,10 @@ Possible Actions
 - Edit/Update own Meeting
 - Delete own Meeting
 
+- To view please use the following login details: 
+    - *Username*: testuser
+    - *Password*: testpassword
+
 ##### *Login*
 Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 - Try to find the Login page
