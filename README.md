@@ -1,6 +1,6 @@
 # Meeting Manager
 
-[View the live app here.](http://flask-meeting-manager-project.herokuapp.com/)
+[View the live app here.](https://flask-meeting-manager-project.herokuapp.com/)
 
 ![home](/static/images/screenshot_1.png)
 
@@ -298,7 +298,7 @@ Possible Actions:
     - New Group card appears on manage groups page
 ![add groups](/static/images/screenshot_16.png)
 
-##### *Project-Category Edit/Update*
+##### *Meet-Group Edit/Update*
 - On manage groups page click "*Edit*" button on the group card you'd like to edit
 - **Expected Result:** - Directed to Edit Group page
 - Make edit to group or cancel changes
@@ -307,7 +307,7 @@ Possible Actions:
     - If changes made flash message --> "*Group Successfully Updated*"
 ![edit groups](/static/images/screenshot_10.png)
 
-##### *Project-Category Delete*
+##### *Meeting-Group Delete*
 - On manage groups page click "*Delete*" button on the group card you'd like to remove
 - **Expected Result:** 
     - Pop-up modal to ask user to confirm deletion
