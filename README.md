@@ -344,6 +344,8 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
     - Surface Duo
     - Galaxy Fold
 - Cross browser testing was also attempted on Chrome, Firefox and Safari
+- Chrome Lighthouse report shows site is highly responsive:
+![lighthouse](/static/images/screenshot_17.png)
 
 ### Fixed Bugs
 
@@ -368,6 +370,21 @@ For deployment on Heroku I've used the following steps:
 * I've added the config vars for my IP, PORT, MONGO_URI and SECRET_KEY.
 * In the "Manual Deployment" section of this page I've made sure the master branch is selected and I've clicked "Deploy Branch".
 * The site is now successfully deployed.
+
+### Run the project locally
+
+Clone this project from GitHub:
+
+1. Click for the [GitHub repository](https://github.com/Verga1/Meeting-Manager).
+2. Near the top of the page, click the green button "Code".
+3. In the Clone with HTTPs section, copy the clone URL for the repository.
+4. Open your preferred IDE.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL you copied in Step 3.
+7. Press Enter. Your local clone will be created.
+
+Further details on cloning a repository can be found on [GitHub](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
 
 ## CREDITS
 
