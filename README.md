@@ -148,6 +148,7 @@ Possible Actions
 ##### *View Index Page*
 - Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 - **Expected Result:** Directed to site index page which directs user to login or register
+[index page](/static/images/screenshot_12.png)
 
 ##### *Register*
 Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
