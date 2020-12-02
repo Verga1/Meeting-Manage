@@ -94,7 +94,7 @@ Here are the designs I made for the site [1](/static/images/meeting_manager_wf1.
         - *Password*:adminpassword
 
 
- ### Features Left to Impliment
+ ### Features Left to Implement
 
 Future features may include but not limted to: 
 1. **Profile** 
@@ -311,10 +311,20 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
 ### **Site UI/UX & Browser Compatibility Testing**
 
 - Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
-- Chrome dev tools were used to review responsivness on multiple device sizes
+- Chrome dev tools were used to review responsivness on multiple devices:
+    - Moto G4
+    - Galaxy S5
+    - Pixel 2/2 XL
+    - iPhone 5/5E/6/7/8/8+/X
+    - iPad/Pro
+    - Surface Duo
+    - Galaxy Fold
 - Cross browser testing was also attempted on Chrome, Firefox and Safari
 
-### Bugs
+### Fixed Bugs
+
+- Despite requesting that a user registers and logs in, any page was visible in the browser by copying and pasting the full web address.
+- Fixed issue by implementing function which required the correct user or admin to have access to certain urls. This directs the incorrect user to an error page.
 
 
  ## DEPLOYMENT
@@ -333,7 +343,7 @@ For deployment on Heroku I've used the following steps:
 * In the Heroku dashboard I've clicked "Settings" > "Reveal Config Vars".
 * I've added the config vars for my IP, PORT, MONGO_URI and SECRET_KEY.
 * In the "Manual Deployment" section of this page I've made sure the master branch is selected and I've clicked "Deploy Branch".
-* The site was now successfully deployed.
+* The site is now successfully deployed.
 
 ## CREDITS
 
