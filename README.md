@@ -294,7 +294,6 @@ Possible Actions:
     - Success Flash message --> "*Group Successfully Deleted*"
 
 
-
 ### Defensive Design Testing
 
 - As detailed above all features have been designed with the consideration to the session user to manage the user actions and visibility
@@ -313,7 +312,7 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
 
 - Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
 - Chrome dev tools were used to review responsivness on multiple device sizes
-- Cross browswer testing was also attempted on chrome and safari
+- Cross browser testing was also attempted on Chrome, Firefox and Safari
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -384,12 +383,6 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
     3. As the app owner, I want to sell other apps to users.
         -   The footer contains a link which can be used to take the user to advertisements for other apps that they might be interested in.
 
-### Further testing
-* Tested this website on laptop and mobile.
-* Tested this website on Google Chrome, Firefox and Safari browsers.
-* I've asked colleagues and friends to give feedback.
-* During testing I used "inspect" function on different OS, devices and browsers.
-
 
 ### Bugs
 
@@ -412,16 +405,44 @@ For deployment on Heroku I've used the following steps:
 * In the "Manual Deployment" section of this page I've made sure the master branch is selected and I've clicked "Deploy Branch".
 * The site was now successfully deployed.
 
+
+To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
+
+1. Log into GitHub.
+2. In the list of repositories on the screen, select Meeting Manager.
+3. In the menu items near the top of the page, select Settings.
+4. Scroll down to the GitHub Pages section.
+5. Under Source select the drop-down menu labelled None and select Master Branch and hit save
+6. The Master Branch automatically refreshes the page, the website has now been deployed.
+7. Scroll down to the GitHub Pages section in order to retrieve the link to the deployed website.
+
+
+
+### Run the project locally
+
+Clone this project from GitHub:
+
+1. Click for the [GitHub repository](https://github.com/Verga1/Meeting-Manager).
+2. Near the top of the page, click the green button "Code".
+3. In the Clone with HTTPs section, copy the clone URL for the repository.
+4. Open your preferred IDE.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL you copied in Step 3.
+7. Press Enter. Your local clone will be created.
+
+Further details on cloning a repository can be found on [GitHub](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
 ## CREDITS
 
 ### Tutorial
 -   This app was built in conjunction with The Code Institute 'Data Centric Development' module.
 
-### Content
+### Acknowledgements
 
- 
- ### Media
+I would like to extend a special thanks to my Code Institute Mentor Rohit Sharma for kind support and time throughout this project.
+Thank you also to the tutors for their support throughout this project.
 
 
-## Acknowledgements
+#### Disclaimer
+The content of this website is for educational purposes only.
  
