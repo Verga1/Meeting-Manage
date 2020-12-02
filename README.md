@@ -306,83 +306,13 @@ To ensure all code was clean, bug free and most importantly for python PEP8 comp
 - [W3C HTML validator](https://validator.w3.org/) to validate CSS code
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS code
 - [JSlint](https://jslint.com) to validate jQuery Code
-- Pylint in the DOM to validate Python code
+- Pylint to validate Python code
 
 ### **Site UI/UX & Browser Compatibility Testing**
 
 - Manual testing was carried out on this site by the developers family members to review the UX and site responsivness
 - Chrome dev tools were used to review responsivness on multiple device sizes
 - Cross browser testing was also attempted on Chrome, Firefox and Safari
-
-### Testing User Stories from User Experience (UX) Section
-
-#### First Time Visitor Goals
-
-    1. As a first time user, I want to see that the app meets my needs or those of my organisation.
-
-        1. The full workings of the app are apparent from first time use.
-        2. The minimalist design allows users to quickly 'Register'/'Login' and see what the 'Meeting Manager' contains and how to edit or add to it.
-        3. The 'Profile' page gives information on user permissions with regards to create, read, update and delete rights. (to test this, login as 'testuser' with password 'testpassword')
-
-    2. As a first time user, I want to easily navigate throughout the app to find content.
-
-        1. The app has been designed to be minimalist, with concise information and as few links as possible. 
-        2. The 'Meeting Manager' itself appears as a collapsible list as each 'Meeting' contains a lot of information.
-        3. The user permissions are slightly different for 'admin' as compared to a regular user and with this in mind, to add or edit a 'Group' don't appear for regular users. (to test this, login as 'admin' with password 'adminpassword')
-
-    3. As a first time user, I want to see that I can quickly and easily input relevant information.
-        1. The 'Login' and 'Register' pages only contain 2 input fields.
-        2. The 'Add Meeting' link is in the main menu.
-        3. The 'Add Group' link is in the main menu for admin. (to test this, login as 'admin' with password 'adminpassword')
-
-#### Returning Visitor Goals
-
-    1. As a returning user, I want to create and view Meetings.
-
-        1. The 'Add Meeting' link is in the main menu for all users.
-        2. The 'Meetings/Home' link is in the main menu for all users.
-        3. The 'All Meetings' is a collapsible list, all information on a 'Meeting' can be viewed by clicking the 'Meeting' title.
-
-    2. As a returning user, I want to share my 'Meeting' with other members of my team.
-
-        1. There is no limit to how many users can register, login and view the 'Meeting Platform'.
-        2. All 'Meetings' are visible the whole team.
-        3. 'Meetings' can only be edited or deleted by the user who created them, or by admin.
-
-    3. As a returning user, I want to update action items.
-        1. Each 'Meeting' has an ability to edit the meeting details.
-        2. The 'Add Meeting' form contains a switch to verify when meeting actions are completed.
-        3. The 'Edit Meeting' form contains the same ability.
-
-#### Frequent User Goals
-
-    1. As a frequent user, I want to update and delete Meetings.
-
-        1. The 'Edit' and 'Delete' button links are visible within each 'Meeting'. 
-        2. 'Meetings' can only be edited or deleted by the user who created them, or by admin.
-        3. To delete a 'Meeting' the user will be prompted to confirm they wish to do so.
-
-    2. As a frequent user, I want to create and manage Meeting Groups.
-
-        1. The 'Groups' link is only visible to admin.
-        2. The 'Add Group', 'Delete Group' & 'Edit Group' button links are only visible to admin. 
-        3. To delete a 'Group' the user will be prompted to confirm they wish to do so.
-
-    3. As a frequent user, I want to view and manage the action items.
-
-        1. 'Meeting Actions' can be changed from within the 'Edit Meeting' form, and has a Materialize switch to show completion.
-        2. 'Meeting Actions' are quickly visible in the collapsible body of each Meeting on the Home page.
-        3. The Actions Status are tool-tipped to state if the 'Status' is in progress or completed.
-
-#### Owner Goals
-
-    1. As the app owner, I want to provide a clean and easy-to-use app that appeals to a certain market.
-        -   The app has been designed to be minimalist, with concise information and as few links as possible.
-    2. As the app owner, I want to ensure the app provides industry-standard functionality.
-        -   The 'Meeting Manager' contains industry-standard fields and information.
-    3. As the app owner, I want to sell other apps to users.
-        -   The footer contains a link which can be used to take the user to advertisements for other apps that they might be interested in.
-
 
 ### Bugs
 
@@ -405,37 +335,13 @@ For deployment on Heroku I've used the following steps:
 * In the "Manual Deployment" section of this page I've made sure the master branch is selected and I've clicked "Deploy Branch".
 * The site was now successfully deployed.
 
-
-To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
-
-1. Log into GitHub.
-2. In the list of repositories on the screen, select Meeting Manager.
-3. In the menu items near the top of the page, select Settings.
-4. Scroll down to the GitHub Pages section.
-5. Under Source select the drop-down menu labelled None and select Master Branch and hit save
-6. The Master Branch automatically refreshes the page, the website has now been deployed.
-7. Scroll down to the GitHub Pages section in order to retrieve the link to the deployed website.
-
-
-
-### Run the project locally
-
-Clone this project from GitHub:
-
-1. Click for the [GitHub repository](https://github.com/Verga1/Meeting-Manager).
-2. Near the top of the page, click the green button "Code".
-3. In the Clone with HTTPs section, copy the clone URL for the repository.
-4. Open your preferred IDE.
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type git clone, and then paste the URL you copied in Step 3.
-7. Press Enter. Your local clone will be created.
-
-Further details on cloning a repository can be found on [GitHub](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
-
 ## CREDITS
 
 ### Tutorial
 -   This app was built in conjunction with The Code Institute 'Data Centric Development' module.
+
+### Code & Content
+- [Materialize](https://materializecss.com/) - Used throughout the project mainly for responsive navigation and the collapsible list components.
 
 ### Acknowledgements
 

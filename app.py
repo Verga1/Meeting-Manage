@@ -173,6 +173,14 @@ def add_meeting():
     return render_template("add_meeting.html", groups=groups)
 
 
+def is_admin_user():
+    """
+    Admin session user
+    """
+    print(session.get("user"))
+    return session.get("user") == "admin"
+
+
 @app.route("/edit_meeting/<meeting_id>", methods=["GET", "POST"])
 def edit_meeting(meeting_id):
     """
@@ -182,7 +190,8 @@ def edit_meeting(meeting_id):
     """
     meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
     if not session.get("user") or not meeting or meeting["created_by"] != session["user"]:
-        return render_template("error.html")
+        if not is_admin_user():
+            return render_template("error.html")
     if request.method == "POST":
         is_complete = "on" if request.form.get("is_complete") else "off"
         submit = {
@@ -206,6 +215,10 @@ def delete_meeting(meeting_id):
     """
     Delete a meeting from the database
     """
+    meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
+    if not session.get("user") or not meeting or meeting["created_by"] != session["user"]:
+        if not is_admin_user():
+            return render_template("error.html")
     mongo.db.meetings.remove({"_id": ObjectId(meeting_id)})
     flash("Meeting Successfully Deleted")
     return redirect(url_for("get_meetings"))
