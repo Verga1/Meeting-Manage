@@ -2,6 +2,8 @@
 
 [View the live app here.](http://flask-meeting-manager-project.herokuapp.com/)
 
+![home](/static/images/screenshot_1.png)
+
 ## UX
 
 ### **Goals:**
@@ -148,14 +150,18 @@ Possible Actions
 ##### *View Index Page*
 - Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 - **Expected Result:** Directed to site index page which directs user to login or register
-[index page](/static/images/screenshot_12.png)
+![index page](/static/images/screenshot_12.png)
+
 
 ##### *Register*
 Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 - Try to find the Registration page
     - **Nav bar** - From the navigation menu click *Register*
+![nav bar](/static/images/screenshot_11.png)
+
 - **Expected Result:** 
     - Directed to Register Page
+![register](/static/images/screenshot_13.png)
 
 - Fill in username and password 
 - **Expected Result:** 
@@ -179,8 +185,10 @@ Possible Actions
 Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 - Try to find the Login page
     - From the navigation menu click *Login*
+![nav bar](/static/images/screenshot_11.png)    
 - **Expected Result:** 
     - Directed to Login Page
+![login](/static/images/screenshot_14.png) 
 
 - Fill in username and password 
 - **Expected Result:** 
@@ -196,12 +204,14 @@ Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 - **Expected Result:** 
     - Directed to Login page
     - Success flash message confirming you have logged out --> "*You have been successfully logged out*"
+![logout](/static/images/screenshot_15.png) 
 
 ##### *Meetings (CRUD)*
 ##### *Meeting Create*
 - From the navigation menu click *New Meetings*
 - Fill out form all fields required 
 - Click the "*Add Meeting*" button
+![add meeting](/static/images/screenshot_5.png) 
 
 - **Expected Result:** 
     - Directed to Home page and will see new meeting live on the page
@@ -211,6 +221,7 @@ Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
 
 ##### *Meetings Read*
 - Meeting available to read on Home page
+![home](/static/images/screenshot_1.png)
 
 ##### *Meetings Edit/Update*
 - Meeting creator will have the abilty to edit a meeting
@@ -219,6 +230,7 @@ Launch Site via URL - https://flask-meeting-manager-project.herokuapp.com/
     - From the meeting detail in collapsible body select the edit button on the card
 - **Expected Result:** 
     - Directed to Edit Meeting page
+![edit meeting](/static/images/screenshot_6.png)
  
 - User can edit details and click the *Edit* button
     - **Expected Result:** 
@@ -238,6 +250,8 @@ User can delete a meeting by clicking the *Delete* button
     - Meeting deleted from list
     - User directed back to Home page
     - Success Flash message --> "*Meeting Successfully Deleted*"
+![delete meeting](/static/images/screenshot_2.png)
+![delete button](/static/images/screenshot_7.png)
 
 - **Defensive Design:** 
     - To protect the integrity of all meetings a registered user is only able to delete a meeting they created
@@ -262,6 +276,8 @@ Possible Actions:
 - Select *Manage Groups* from the navigation menu
 - **Expected Result:** 
     - Directed to Manage Groups list page 
+![admin nav bar](/static/images/screenshot_8.png)
+![manage groups](/static/images/screenshot_9.png)
 
 **Defensive Design:** 
 - Only admin can view the groups to protect integrity
@@ -275,8 +291,8 @@ Possible Actions:
 - **Expected Result:** 
     - Directed to Manage Groups page 
     - Success Flash message --> "*New Group Added*"
-    - New Group card appears on list page
-
+    - New Group card appears on manage groups page
+![add groups](/static/images/screenshot_16.png)
 
 ##### *Project-Category Edit/Update*
 - On manage groups page click "*Edit*" button on the group card you'd like to edit
@@ -285,6 +301,7 @@ Possible Actions:
 - **Expected Result:**
     - Directed back to manage group page
     - If changes made flash message --> "*Group Successfully Updated*"
+![edit groups](/static/images/screenshot_10.png)
 
 ##### *Project-Category Delete*
 - On manage groups page click "*Delete*" button on the group card you'd like to remove
@@ -293,6 +310,8 @@ Possible Actions:
     - Category deleted from groups
     - User directed back to manage groups page
     - Success Flash message --> "*Group Successfully Deleted*"
+![manage groups](/static/images/screenshot_9.png)
+![delete button](/static/images/screenshot_7.png)
 
 
 ### Defensive Design Testing
